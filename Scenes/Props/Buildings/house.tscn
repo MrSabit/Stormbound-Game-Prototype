@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5wwf6ecnele2"]
+
+[ext_resource type="PackedScene" uid="uid://pgvf6nsws61w" path="res://Scenes/Props/Buildings/building.tscn" id="1_876gn"]
+[ext_resource type="Script" uid="uid://bpi2xui3knffy" path="res://Scripts/houses/house.gd" id="2_fs20i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_876gn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs20i"]
+albedo_color = Color(1, 0.595, 0.19, 1)
+
+[node name="House" unique_id=698441583 instance=ExtResource("1_876gn")]
+script = ExtResource("2_fs20i")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=810589338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_876gn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="1" unique_id=1671323852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material = SubResource("StandardMaterial3D_fs20i")

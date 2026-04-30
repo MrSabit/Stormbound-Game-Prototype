@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dqcjajwva3jiw"]
+
+[ext_resource type="Script" uid="uid://1uh1wp8xm68e" path="res://Scripts/Game/game_manager.gd" id="1_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dinb5sq5qyjpd" path="res://Scenes/Villages/village.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://r1gj533um7l2" path="res://Scenes/UI/ui.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bxfmo8lhikdg" path="res://Scenes/UI/result_screen.tscn" id="3_i6g32"]
+[ext_resource type="Script" uid="uid://bqdlkrpf2igby" path="res://Scripts/Disasters/disaster_manager.gd" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://ddmah3gva8liw" path="res://Scenes/item_manager.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://d2qli2p4e0oe4" path="res://Scenes/Game/camera_manager.gd" id="5_v158k"]
+[ext_resource type="Script" uid="uid://dexnhylru6kul" path="res://Scripts/Result Screen/result_screen_manager.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://cv4l8aqamffha" path="res://Scenes/Game/camera_rig.gd" id="9_h4fw4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wrm1d"]
+radius = 81.06489
+
+[node name="Game" type="Node3D" unique_id=113382539]
+
+[node name="GameManager" type="Node" parent="." unique_id=619133282]
+script = ExtResource("1_1l0tm")
+
+[node name="DisasterManager" type="Node" parent="." unique_id=1397911540 node_paths=PackedStringArray("disasters")]
+script = ExtResource("3_wrm1d")
+disasters = {
+0: NodePath("../Disasters/Wind")
+}
+
+[node name="ItemManager" type="Node" parent="." unique_id=1517045486 node_paths=PackedStringArray("selected_items")]
+script = ExtResource("4_3dryh")
+selected_items = NodePath("../SelectedItems")
+
+[node name="ResultScreenManager" type="Node" parent="." unique_id=348762419]
+script = ExtResource("5_wowpa")
+
+[node name="CameraManager" type="Node" parent="." unique_id=585946757 node_paths=PackedStringArray("camera")]
+script = ExtResource("5_v158k")
+camera = NodePath("../CameraRig/Elevation/Camera3D")
+
+[node name="Village" parent="." unique_id=260087031 instance=ExtResource("1_qxrlw")]
+
+[node name="UI" parent="." unique_id=53950875 instance=ExtResource("2_wrm1d")]
+
+[node name="ResultScreen" parent="UI" unique_id=1788584028 instance=ExtResource("3_i6g32")]
+visible = false
+layout_mode = 1
+
+[node name="Disasters" type="Node" parent="." unique_id=1852645995]
+
+[node name="Wind" type="Area3D" parent="Disasters" unique_id=1340252214]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Disasters/Wind" unique_id=1447318007]
+shape = SubResource("SphereShape3D_wrm1d")
+
+[node name="SelectedItems" type="Node" parent="." unique_id=1928936392]
+
+[node name="Timers" type="Node" parent="." unique_id=1157912901]
+
+[node name="WindTimer" type="Timer" parent="Timers" unique_id=744982621]
+wait_time = 10.0
+one_shot = true
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=804293705]
+transform = Transform3D(-0.5210096, 0, -0.8535508, 0, 1, 0, 0.8535508, 0, -0.5210096, -2.937, 0, -8.325)
+script = ExtResource("9_h4fw4")
+
+[node name="Elevation" type="Node3D" parent="CameraRig" unique_id=2037755996]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/Elevation" unique_id=1898961265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.414)
+
+[connection signal="pressed" from="UI/ActionButtons/MarginContainer/ReadyButton" to="DisasterManager" method="_on_ready_button_pressed"]
+[connection signal="timeout" from="Timers/WindTimer" to="DisasterManager" method="_on_wind_timer_timeout"]
+
+[editable path="Village"]
+[editable path="UI"]
+[editable path="UI/ResultScreen"]

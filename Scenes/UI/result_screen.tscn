@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bxfmo8lhikdg"]
+
+[ext_resource type="Script" uid="uid://cvfg1ksvsftbs" path="res://Scenes/UI/result_screen.gd" id="1_1oqlq"]
+[ext_resource type="PackedScene" uid="uid://d0s7pw1gs7bqg" path="res://Scenes/UI/score_counter.tscn" id="1_eygx5"]
+
+[node name="ResultScreen" type="Control" unique_id=1788584028]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1oqlq")
+
+[node name="ResultHUD" type="Control" parent="." unique_id=787686837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResultHUD" unique_id=546113176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultHUD/VBoxContainer" unique_id=594014136]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="LeftBox" type="MarginContainer" parent="ResultHUD/VBoxContainer/HBoxContainer" unique_id=1202591516]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="ResultHUD/VBoxContainer/HBoxContainer/LeftBox" unique_id=1039673283]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreCounter" parent="ResultHUD/VBoxContainer/HBoxContainer/LeftBox/PanelContainer" unique_id=1123701207 instance=ExtResource("1_eygx5")]
+unique_name_in_owner = true
+layout_mode = 2
+score_dist = Dictionary[int, int]({
+0: 20,
+1: 15,
+2: 15
+})
+objective_role_names = Dictionary[int, String]({
+0: "Save Building Score",
+1: "Save Area Score",
+2: "Save X Building Score"
+})
+
+[node name="RightBox" type="MarginContainer" parent="ResultHUD/VBoxContainer/HBoxContainer" unique_id=729911013]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="ResultHUD/VBoxContainer/HBoxContainer/RightBox" unique_id=1806740730]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomBox" type="MarginContainer" parent="ResultHUD/VBoxContainer" unique_id=1483905333]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="ResultHUD/VBoxContainer/BottomBox" unique_id=2101469378]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RetryButton" type="Button" parent="ResultHUD/VBoxContainer/BottomBox/PanelContainer" unique_id=1097901663]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Retry"
+
+[connection signal="pressed" from="ResultHUD/VBoxContainer/BottomBox/PanelContainer/RetryButton" to="." method="_on_retry_button_pressed"]

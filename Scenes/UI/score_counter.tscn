@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d0s7pw1gs7bqg"]
+
+[ext_resource type="Script" uid="uid://drs5mnft2lc0o" path="res://Scripts/Result Screen/score_counter.gd" id="1_drokp"]
+
+[node name="ScoreCounter" type="Control" unique_id=1123701207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_drokp")
+score_print_speed = 0.03
+score_dist = Dictionary[int, int]({
+0: 10,
+1: 15,
+2: 5,
+3: 7
+})
+score_type_names = Dictionary[int, String]({
+0: "House Protection Score",
+1: "Test Score 1 ",
+2: "Test Score 2",
+3: "Test Score 3"
+})
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1617001212]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Hi
+"
+
+[node name="IndvidualScores" type="Control" parent="VBoxContainer" unique_id=1030343225]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="IndScoreContainer" type="VBoxContainer" parent="VBoxContainer/IndvidualScores" unique_id=1387587518]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.5
+offset_top = -40.0
+offset_right = 69.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DividerLine" type="ColorRect" parent="VBoxContainer" unique_id=191466386]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+color = Color(0, 0, 0, 1)
+
+[node name="TotalScore" type="Control" parent="VBoxContainer" unique_id=1107714307]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TotalScoreContainer" type="VBoxContainer" parent="VBoxContainer/TotalScore" unique_id=1779904669]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.5
+offset_right = 69.5
+offset_bottom = 40.0
+grow_horizontal = 2

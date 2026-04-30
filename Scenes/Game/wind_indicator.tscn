@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://blchv1u03o0kq"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_jvfkt"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[node name="WindIndicator" type="Node3D" unique_id=1634498168]
+
+[node name="Indicator" type="Node3D" parent="." unique_id=1488753122]
+transform = Transform3D(-0.8300123, 0, -0.55774504, 0, 1, 0, 0.55774504, 0, -0.8300123, 0.9767426, 2.6437044, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Indicator" unique_id=2012205575]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.3432032, 0.08086109, 0)
+mesh = SubResource("PrismMesh_jvfkt")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Indicator" unique_id=1937415405]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.011472702, 0.06053114, 0)
+radius = 0.125
+
+[node name="Base" type="CSGCylinder3D" parent="." unique_id=464414575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9613466, 1.6540818, 0)
+radius = 0.1875

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dinb5sq5qyjpd"]
+
+[ext_resource type="PackedScene" uid="uid://l7kxjn1dcmdv" path="res://Scenes/Props/Buildings/building_rig.tscn" id="1_rxjv0"]
+[ext_resource type="PackedScene" uid="uid://blchv1u03o0kq" path="res://Scenes/Game/wind_indicator.tscn" id="2_2qmud"]
+[ext_resource type="Script" uid="uid://c08jia6oedq3h" path="res://Scripts/Game/indicator.gd" id="3_wj5fo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2qmud"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wj5fo"]
+sky_material = SubResource("ProceduralSkyMaterial_2qmud")
+
+[sub_resource type="Environment" id="Environment_g5aw1"]
+background_mode = 2
+sky = SubResource("Sky_wj5fo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qmud"]
+albedo_color = Color(0.0044999956, 0.45, 0.26437494, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qmud"]
+size = Vector3(120, 1, 120)
+
+[node name="Village" type="Node3D" unique_id=260087031]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1043100776]
+environment = SubResource("Environment_g5aw1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1034565675]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Buildings" type="Node" parent="." unique_id=423714243]
+
+[node name="Houses" type="Node" parent="Buildings" unique_id=996004297]
+
+[node name="BuildingRig" parent="Buildings/Houses" unique_id=2075836029 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+building_type = 1
+
+[node name="BuildingRig2" parent="Buildings/Houses" unique_id=2010570068 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5.7217083)
+building_type = 1
+
+[node name="BuildingRig3" parent="Buildings/Houses" unique_id=1505023759 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.430399, 0, 5.7217083)
+building_type = 1
+
+[node name="BuildingRig4" parent="Buildings/Houses" unique_id=1987725360 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.430399, 0, 0.6832485)
+building_type = 1
+
+[node name="BuildingRig5" parent="Buildings/Houses" unique_id=108785936 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.438047, 0, 0.6832485)
+building_type = 1
+
+[node name="BuildingRig6" parent="Buildings/Houses" unique_id=1833296949 instance=ExtResource("1_rxjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.438047, 0, 3.9045687)
+building_type = 1
+
+[node name="Towhall" type="Node" parent="Buildings" unique_id=1688301531]
+
+[node name="BuildingRig" parent="Buildings/Towhall" unique_id=1891690589 instance=ExtResource("1_rxjv0")]
+
+[node name="TownHall" parent="Buildings/Towhall/BuildingRig" index="0" unique_id=698441583]
+unique_id = 2149297990
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=464075328]
+collision_layer = 8
+collision_mask = 15
+
+[node name="GroundMesh" type="CSGBox3D" parent="Ground" unique_id=1315672439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031368494, -0.5000005, -0.0115737915)
+material_override = SubResource("StandardMaterial3D_2qmud")
+size = Vector3(120, 1, 120)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1612712956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_2qmud")
+
+[node name="Walls" type="Node" parent="." unique_id=1976250519]
+
+[node name="WindIndicator" parent="." unique_id=1634498168 instance=ExtResource("2_2qmud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5366063, -0.7097626, -2.0634327)
+
+[node name="Indicator" parent="WindIndicator" index="0" unique_id=1488753122]
+script = ExtResource("3_wj5fo")
+
+[editable path="Buildings/Towhall/BuildingRig"]
+[editable path="WindIndicator"]

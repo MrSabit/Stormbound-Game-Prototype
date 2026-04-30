@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://dqcjajwva3jiw"]
+
+[ext_resource type="Script" uid="uid://1uh1wp8xm68e" path="res://Scripts/Game/game_manager.gd" id="1_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dinb5sq5qyjpd" path="res://Scenes/Villages/village.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://r1gj533um7l2" path="res://Scenes/UI/ui.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bxfmo8lhikdg" path="res://Scenes/UI/result_screen.tscn" id="3_i6g32"]
+[ext_resource type="Script" uid="uid://bqdlkrpf2igby" path="res://Scripts/Disasters/disaster_manager.gd" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://ddmah3gva8liw" path="res://Scripts/Game/item_manager.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://cbpelkdqt3wvr" path="res://Scripts/Game/objective_manager.gd" id="5_h4fw4"]
+[ext_resource type="Script" uid="uid://dexnhylru6kul" path="res://Scripts/Result Screen/result_screen_manager.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://bpi2xui3knffy" path="res://Scripts/houses/house.gd" id="7_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://l7kxjn1dcmdv" path="res://Scenes/Props/Buildings/building_rig.tscn" id="8_o5yvi"]
+[ext_resource type="Script" uid="uid://cv4l8aqamffha" path="res://Scenes/Game/camera_rig.gd" id="9_h4fw4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wrm1d"]
+radius = 81.06489
+
+[node name="Game" type="Node3D" unique_id=113382539]
+
+[node name="GameManager" type="Node" parent="." unique_id=619133282]
+script = ExtResource("1_1l0tm")
+
+[node name="DisasterManager" type="Node" parent="." unique_id=1397911540 node_paths=PackedStringArray("disasters")]
+script = ExtResource("3_wrm1d")
+wind_strength = 20.0
+disasters = {
+0: NodePath("../Disasters/Wind")
+}
+
+[node name="ItemManager" type="Node" parent="." unique_id=1517045486 node_paths=PackedStringArray("selected_items")]
+script = ExtResource("4_3dryh")
+selected_items = NodePath("../SelectedItems")
+
+[node name="ResultScreenManager" type="Node" parent="." unique_id=348762419]
+script = ExtResource("5_wowpa")
+
+[node name="ObjectiveManager" type="Node" parent="." unique_id=298851439 node_paths=PackedStringArray("objective_hud")]
+script = ExtResource("5_h4fw4")
+objective_hud = NodePath("../UI/ObjectiveBox/VBoxContainer/ObjectiveMargine/ObjectiveHUD")
+
+[node name="Village" parent="." unique_id=260087031 instance=ExtResource("1_qxrlw")]
+
+[node name="Buildings" parent="Village" index="2" unique_id=423714243 groups=["Buildings"]]
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig2" parent_id_path=PackedInt32Array(260087031, 2010570068) index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 5381
+
+[node name="BuildingRig7" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="6" unique_id=2075836029 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.745884, 0, 0)
+building_type = 1
+
+[node name="BuildingRig8" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="7" unique_id=1626769320 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.745884, 0, 5.7217083)
+building_type = 1
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig8" index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 1690040739
+
+[node name="BuildingRig9" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="8" unique_id=1984855582 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.315485, 0, 5.7217083)
+building_type = 1
+
+[node name="BuildingRig10" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="9" unique_id=827380922 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.315485, 0, 0.6832485)
+building_type = 1
+
+[node name="BuildingRig11" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="10" unique_id=382167710 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3078365, 0, 0.6832485)
+building_type = 1
+
+[node name="BuildingRig12" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="11" unique_id=1896192212 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3078365, 0, 3.9045687)
+building_type = 1
+
+[node name="BuildingRig13" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="12" unique_id=85773480 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.745884, 0, 12.958521)
+building_type = 1
+
+[node name="BuildingRig14" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="13" unique_id=210776512 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.745884, 0, 18.68023)
+building_type = 1
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig14" index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 4231736656
+
+[node name="BuildingRig15" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="14" unique_id=1525986044 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.315485, 0, 18.68023)
+building_type = 1
+
+[node name="BuildingRig16" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="15" unique_id=2069810885 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.315485, 0, 13.641769)
+building_type = 1
+
+[node name="BuildingRig17" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="16" unique_id=1686611266 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3078365, 0, 13.641769)
+building_type = 1
+
+[node name="BuildingRig18" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="17" unique_id=929164709 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3078365, 0, 16.86309)
+building_type = 1
+
+[node name="BuildingRig19" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="18" unique_id=1776518453 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.500513, 0, 12.958521)
+building_type = 1
+
+[node name="BuildingRig20" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="19" unique_id=826515752 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.500513, 0, 18.68023)
+building_type = 1
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig20" index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 4231736685
+
+[node name="BuildingRig21" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="20" unique_id=2065239781 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.930912, 0, 18.68023)
+building_type = 1
+
+[node name="BuildingRig22" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="21" unique_id=629683363 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.930912, 0, 13.641769)
+building_type = 1
+
+[node name="BuildingRig23" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="22" unique_id=1869238829 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.93856, 0, 13.641769)
+building_type = 1
+
+[node name="BuildingRig24" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="23" unique_id=467328034 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.93856, 0, 16.86309)
+building_type = 1
+
+[node name="BuildingRig25" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="24" unique_id=310377466 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.500513, 0, 22.95852)
+building_type = 1
+
+[node name="BuildingRig26" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="25" unique_id=1240767890 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.500513, 0, 28.68023)
+building_type = 1
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig26" index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 4231736691
+
+[node name="BuildingRig27" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="26" unique_id=809345995 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.930912, 0, 28.68023)
+building_type = 1
+
+[node name="BuildingRig28" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="27" unique_id=236734937 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.930912, 0, 23.64177)
+building_type = 1
+
+[node name="BuildingRig29" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="28" unique_id=521989090 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.93856, 0, 23.64177)
+building_type = 1
+
+[node name="BuildingRig30" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="29" unique_id=1795884722 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.93856, 0, 26.86309)
+building_type = 1
+
+[node name="BuildingRig31" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="30" unique_id=1130439289 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.51149, 0, 22.95852)
+building_type = 1
+
+[node name="BuildingRig32" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="31" unique_id=478541032 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.51149, 0, 28.68023)
+building_type = 1
+
+[node name="House" parent="Village/Buildings/Houses/BuildingRig32" index="0" unique_id=698441583]
+collision_mask = 15
+script = ExtResource("7_ldgsr")
+unique_id = 4231736720
+
+[node name="BuildingRig33" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="32" unique_id=2147256025 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.081091, 0, 28.68023)
+building_type = 1
+
+[node name="BuildingRig34" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="33" unique_id=662262724 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.081091, 0, 23.64177)
+building_type = 1
+
+[node name="BuildingRig35" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="34" unique_id=1088916412 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0734425, 0, 23.64177)
+building_type = 1
+
+[node name="BuildingRig36" parent="Village/Buildings/Houses" parent_id_path=PackedInt32Array(260087031, 996004297) index="35" unique_id=1525091846 instance=ExtResource("8_o5yvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0734425, 0, 26.86309)
+building_type = 1
+
+[node name="BuildingRig" parent="Village/Buildings/Towhall" parent_id_path=PackedInt32Array(260087031, 1688301531) index="0" unique_id=1891690589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 13)
+
+[node name="UI" parent="." unique_id=53950875 instance=ExtResource("2_wrm1d")]
+
+[node name="ResultScreen" parent="UI" unique_id=1788584028 instance=ExtResource("3_i6g32")]
+visible = false
+layout_mode = 1
+
+[node name="Disasters" type="Node" parent="." unique_id=1852645995]
+
+[node name="Wind" type="Area3D" parent="Disasters" unique_id=1340252214]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Disasters/Wind" unique_id=1447318007]
+shape = SubResource("SphereShape3D_wrm1d")
+
+[node name="SelectedItems" type="Node" parent="." unique_id=1928936392]
+
+[node name="Timers" type="Node" parent="." unique_id=1157912901]
+
+[node name="WindTimer" type="Timer" parent="Timers" unique_id=744982621]
+wait_time = 10.0
+one_shot = true
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=804293705]
+transform = Transform3D(-0.5210096, 0, -0.8535508, 0, 1, 0, 0.8535508, 0, -0.5210096, -2.937, 0, -8.325)
+script = ExtResource("9_h4fw4")
+
+[node name="Elevation" type="Node3D" parent="CameraRig" unique_id=2037755996]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/Elevation" unique_id=1898961265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.414)
+
+[connection signal="pressed" from="UI/ActionButtons/MarginContainer/ReadyButton" to="DisasterManager" method="_on_ready_button_pressed"]
+[connection signal="timeout" from="Timers/WindTimer" to="DisasterManager" method="_on_wind_timer_timeout"]
+
+[editable path="Village"]
+[editable path="Village/Buildings/Houses/BuildingRig2"]
+[editable path="Village/Buildings/Houses/BuildingRig8"]
+[editable path="Village/Buildings/Houses/BuildingRig14"]
+[editable path="Village/Buildings/Houses/BuildingRig20"]
+[editable path="Village/Buildings/Houses/BuildingRig26"]
+[editable path="Village/Buildings/Houses/BuildingRig32"]
+[editable path="Village/Buildings/Towhall/BuildingRig"]
+[editable path="Village/WindIndicator"]
+[editable path="UI"]
+[editable path="UI/ObjectiveBox/VBoxContainer/ObjectiveMargine/ObjectiveHUD"]
+[editable path="UI/ResultScreen"]

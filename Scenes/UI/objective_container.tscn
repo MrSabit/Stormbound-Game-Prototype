@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://brjqb4gmeos6y"]
+
+[ext_resource type="PackedScene" uid="uid://lxnl5sccuej7" path="res://Scenes/UI/objective_heading.tscn" id="1_q0g20"]
+[ext_resource type="PackedScene" uid="uid://cnlmwe5cey1b1" path="res://Scenes/UI/objective_label.tscn" id="2_qdiw1"]
+
+[node name="ObjectiveContainer" type="VBoxContainer" unique_id=1418206029]
+
+[node name="Heading" parent="." unique_id=624297554 instance=ExtResource("1_q0g20")]
+layout_mode = 2
+
+[node name="Objective" parent="." unique_id=803201518 instance=ExtResource("2_qdiw1")]
+layout_mode = 2
+
+[node name="Objective2" parent="." unique_id=581985842 instance=ExtResource("2_qdiw1")]
+layout_mode = 2
+
+[node name="Objective3" parent="." unique_id=1159449316 instance=ExtResource("2_qdiw1")]
+layout_mode = 2

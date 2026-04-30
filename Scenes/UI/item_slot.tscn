@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://drcdgkh1wgukv"]
+
+[ext_resource type="Texture2D" uid="uid://d16vi6foyqe1l" path="res://Graphics/UI/item_slot_texture.png" id="1_40bps"]
+[ext_resource type="Script" uid="uid://bvqbp4vf0iq8q" path="res://Scenes/UI/item_slot.gd" id="1_pb2la"]
+[ext_resource type="Texture2D" uid="uid://b2oye3skxtaap" path="res://Graphics/UI/item_slot_texture_selected.png" id="2_41rdk"]
+[ext_resource type="FontFile" uid="uid://xchrabxnagjq" path="res://Graphics/Fonts/Grow Year.otf" id="4_41rdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41rdk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[node name="ItemSlot" type="TextureButton" unique_id=1024288263]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_40bps")
+texture_pressed = ExtResource("2_41rdk")
+texture_focused = ExtResource("2_41rdk")
+stretch_mode = 0
+script = ExtResource("1_pb2la")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=644560811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_41rdk")
+
+[node name="IconContainer" type="MarginContainer" parent="." unique_id=537152981]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="ItemIcon" type="TextureRect" parent="IconContainer" unique_id=1759223242]
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1033647109]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ItemCount" type="Label" parent="MarginContainer" unique_id=1586963904]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_41rdk")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

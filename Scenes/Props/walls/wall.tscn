@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://60n2h2n8cas3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tktrf"]
+resource_local_to_scene = true
+transparency = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlquy"]
+size = Vector3(5, 3, 1)
+
+[node name="Wall" type="StaticBody3D" unique_id=539067744]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1904600688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+size = Vector3(5, 3, 1)
+material = SubResource("StandardMaterial3D_tktrf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1149472528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_xlquy")

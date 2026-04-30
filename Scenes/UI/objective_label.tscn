@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cnlmwe5cey1b1"]
+
+[ext_resource type="FontFile" uid="uid://cslf205fgqnqw" path="res://Graphics/Fonts/Comucan_PERSONAL_USE_ONLY.otf" id="1_w3nry"]
+
+[node name="Objective" type="Label" unique_id=803201518]
+theme_override_fonts/font = ExtResource("1_w3nry")
+text = "• Do Something"

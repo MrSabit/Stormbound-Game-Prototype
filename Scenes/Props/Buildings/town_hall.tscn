@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://m5h56q8q64cl"]
+
+[ext_resource type="PackedScene" uid="uid://pgvf6nsws61w" path="res://Scenes/Props/Buildings/building.tscn" id="1_kl0o5"]
+[ext_resource type="Script" uid="uid://bgsc7a2gf8eid" path="res://Scripts/Props/town_hall.gd" id="2_t2f0d"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kl0o5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2f0d"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="TownHall" unique_id=698441583 instance=ExtResource("1_kl0o5")]
+script = ExtResource("2_t2f0d")
+level = 0
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=810589338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_kl0o5")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="1" unique_id=903555516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material = SubResource("StandardMaterial3D_t2f0d")

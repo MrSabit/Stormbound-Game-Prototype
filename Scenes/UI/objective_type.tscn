@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://16cnj1anrdrq"]
+
+[ext_resource type="PackedScene" uid="uid://lxnl5sccuej7" path="res://Scenes/UI/objective_heading.tscn" id="1_0vp7m"]
+[ext_resource type="PackedScene" uid="uid://cnlmwe5cey1b1" path="res://Scenes/UI/objective_label.tscn" id="2_pu0bi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chnc2"]
+
+[node name="ObjectiveType" type="PanelContainer" unique_id=65188422]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_chnc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2065508828]
+layout_mode = 2
+
+[node name="ObjectiveContainer" type="VBoxContainer" parent="MarginContainer" unique_id=388299575]
+layout_mode = 2
+
+[node name="Heading" parent="MarginContainer/ObjectiveContainer" unique_id=624297554 instance=ExtResource("1_0vp7m")]
+layout_mode = 2
+
+[node name="Objective" parent="MarginContainer/ObjectiveContainer" unique_id=803201518 instance=ExtResource("2_pu0bi")]
+layout_mode = 2
+
+[node name="Objective2" parent="MarginContainer/ObjectiveContainer" unique_id=2138241704 instance=ExtResource("2_pu0bi")]
+layout_mode = 2
+
+[node name="Objective3" parent="MarginContainer/ObjectiveContainer" unique_id=258190141 instance=ExtResource("2_pu0bi")]
+layout_mode = 2

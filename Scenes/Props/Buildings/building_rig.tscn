@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://l7kxjn1dcmdv"]
+
+[ext_resource type="Script" uid="uid://cfm48ldac4lpr" path="res://Scripts/Props/building_rig.gd" id="1_dmf84"]
+[ext_resource type="PackedScene" uid="uid://m5h56q8q64cl" path="res://Scenes/Props/Buildings/town_hall.tscn" id="2_73nml"]
+[ext_resource type="PackedScene" uid="uid://b5wwf6ecnele2" path="res://Scenes/Props/Buildings/house.tscn" id="3_0tgs4"]
+[ext_resource type="Script" uid="uid://bgsc7a2gf8eid" path="res://Scripts/Props/town_hall.gd" id="4_73nml"]
+
+[node name="BuildingRig" type="Node3D" unique_id=2075836029]
+script = ExtResource("1_dmf84")
+building_scenes = Dictionary[int, PackedScene]({
+0: ExtResource("2_73nml"),
+1: ExtResource("3_0tgs4")
+})
+
+[node name="TownHall" type="RigidBody3D" parent="." unique_id=698441583 instance=ExtResource("2_73nml")]
+collision_mask = 15
+script = ExtResource("4_73nml")
+unique_id = 3825119075

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1e2m664qpf0n"]
+
+[ext_resource type="PackedScene" uid="uid://bxfmo8lhikdg" path="res://Scenes/UI/result_screen.tscn" id="1_y5nvo"]
+
+[node name="Node2D" type="Node2D" unique_id=1392642234]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1880711699]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1633269634]
+follow_viewport_enabled = true
+
+[node name="ResultScreen" parent="CanvasLayer" unique_id=1788584028 instance=ExtResource("1_y5nvo")]
+offset_left = -570.0
+offset_top = -328.0
+offset_right = -570.0
+offset_bottom = -328.0

@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://r1gj533um7l2"]
+
+[ext_resource type="Script" uid="uid://deb4c23jfdhku" path="res://Scenes/UI/ui.gd" id="1_de23q"]
+[ext_resource type="PackedScene" uid="uid://drcdgkh1wgukv" path="res://Scenes/UI/item_slot.tscn" id="2_c7mb3"]
+[ext_resource type="PackedScene" uid="uid://ctqhh56qcklp7" path="res://Scenes/UI/objective_hud.tscn" id="3_c7mb3"]
+[ext_resource type="FontFile" uid="uid://xchrabxnagjq" path="res://Graphics/Fonts/Grow Year.otf" id="3_fo61o"]
+[ext_resource type="StyleBox" uid="uid://f8ibp2oy53i1" path="res://Styles/hide_and_show_button_style.tres" id="4_alcrr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c2ca"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.7885162, 0.4745009, 0.44498074, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duuxe"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.82, 0.40658334, 0.369, 0.35686275)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alcrr"]
+content_margin_left = 5.0
+bg_color = Color(0.93983763, 0.6275969, 0.58784413, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UI" type="Control" unique_id=53950875 groups=["UI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_de23q")
+
+[node name="ActionButtons" type="Control" parent="." unique_id=876884432]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionButtons" unique_id=211678721]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="ReadyButton" type="Button" parent="ActionButtons/MarginContainer" unique_id=772290186]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = ExtResource("4_alcrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1c2ca")
+theme_override_styles/hover = SubResource("StyleBoxFlat_duuxe")
+text = "Ready
+"
+
+[node name="HotBox" type="Control" parent="." unique_id=1467608538]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HotBox" unique_id=233558166]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -84.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="ItemContainer" type="HBoxContainer" parent="HotBox/MarginContainer" unique_id=1221299815]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="ItemSlot" parent="HotBox/MarginContainer/ItemContainer" unique_id=1024288263 instance=ExtResource("2_c7mb3")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FPS" type="Control" parent="." unique_id=1297851334]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="FPS" unique_id=1110920524]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ObjectiveBox" type="MarginContainer" parent="." unique_id=495535737]
+layout_mode = 1
+offset_right = 372.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ObjectiveBox" unique_id=736121307]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="ShowHideButton" type="Button" parent="ObjectiveBox/VBoxContainer" unique_id=1916076073]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_fo61o")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("4_alcrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_alcrr")
+theme_override_styles/hover = ExtResource("4_alcrr")
+text = " < "
+
+[node name="ObjectiveMargine" type="MarginContainer" parent="ObjectiveBox/VBoxContainer" unique_id=2037743256]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ObjectiveHUD" parent="ObjectiveBox/VBoxContainer/ObjectiveMargine" unique_id=488023914 instance=ExtResource("3_c7mb3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="ObjectiveBox/VBoxContainer/ShowHideButton" to="." method="_on_button_pressed"]

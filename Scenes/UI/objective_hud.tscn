@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ctqhh56qcklp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chnc2"]
+bg_color = Color(1, 0.28500003, 0.22000003, 0.58431375)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="ObjectiveHUD" type="Control" unique_id=488023914]
+custom_minimum_size = Vector2(372, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -780.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=233850847]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_chnc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2088337913]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ObjectiveTypeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1991201531]
+layout_mode = 2
+theme_override_constants/separation = 17
